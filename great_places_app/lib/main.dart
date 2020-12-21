@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.amber,
         ),
         home: PlacesListScreen(),
-        routes: {
-          AddPlaceScreen.routeName: (ctx) => AddPlaceScreen()
-        },
+        routes: {AddPlaceScreen.routeName: (ctx) => AddPlaceScreen()},
       ),
     );
   }
 }
+
+// AIzaSyDS3Df6xC_u79_jY6lbYOrg3DwaJ48w2FI

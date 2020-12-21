@@ -20,7 +20,8 @@ class _ImageInputState extends State<ImageInput> {
   Future _takePicture() async {
     final picker = ImagePicker();
     final imageFile = await picker.getImage(
-      source: ImageSource.camera,
+      //source: ImageSource.camera,
+      source: ImageSource.gallery,
       maxWidth: 600,
     );
     if (imageFile == null) {
@@ -31,8 +32,7 @@ class _ImageInputState extends State<ImageInput> {
     });
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(_storedImage.path);
-    final savedImage =
-        await _storedImage.copy('${appDir.path}/$fileName');
+    final savedImage = await _storedImage.copy('${appDir.path}/$fileName');
     widget.onSelectImage(savedImage);
   }
 

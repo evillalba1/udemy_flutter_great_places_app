@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:great_places_app/widgets/location_input.dart';
 import 'package:provider/provider.dart';
 import 'package:great_places_app/widgets/image_input.dart';
 import '../provider/great_places.dart';
@@ -29,7 +30,6 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     Navigator.of(context).pop();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,24 +41,23 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Title'
-                        ),
-                        controller: _titleController,
-                      ),
-                      SizedBox(height:10),
-                      ImageInput(_selectImage),
-                    ],
-                  ),
+                child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: _titleController,
+                    ),
+                    SizedBox(height: 10),
+                    ImageInput(_selectImage),
+                    SizedBox(height: 10),
+                    LocationInput(),
+                  ],
                 ),
-              )
-            ),
+              ),
+            )),
             RaisedButton.icon(
               icon: Icon(Icons.add),
               label: Text('Add Place'),
